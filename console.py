@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """
+The console v: 0.0.1
 Contains the entry point of the command interpreter
 """
 
@@ -22,7 +23,7 @@ class HBNBCommand(cmd.Cmd):
     Custom console class
     """
 
-    prompt = "(hbnb) "
+    prompt = '(hbnb) '
 
     def my_errors(self, line, num_of_args):
         """Displays error messages to user
