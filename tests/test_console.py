@@ -1,28 +1,38 @@
 #!/usr/bin/python3
-"""Defines unittests for console.py.
-
-Unittest classes:
-    TestHBNBCommand_prompting
-    TestHBNBCommand_help
-    TestHBNBCommand_exit
-    TestHBNBCommand_create
-    TestHBNBCommand_show
-    TestHBNBCommand_all
-    TestHBNBCommand_destroy
-    TestHBNBCommand_update
 """
-import os
+Unit tests for console using Mock module from python standard library
+Checks console for capturing stdout into a StringIO object
+"""
 import pep8
-import console
-import json
+import os
 import sys
 import unittest
-from models import storage
-from models.engine.file_storage import FileStorage
-from console import HBNBCommand
+from unittest.mock import create_autospec, patch
 from io import StringIO
-from unittest.mock import patch
+from console import HBNBCommand
+from models import storage
+from models.base_model import BaseModel
+from models.user import User
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
+import console
+import json
+from models.engine.file_storage import FileStorage
 
+
+class TestBaseModelpep8(unittest.TestCase):
+    """Validate pep8"""
+
+    def test_pep8(self):
+        """test for base file and test_base file pep8"""
+        style = pep8.StyleGuide(quiet=True)
+        user_pep8 = "console.py"
+        test_console_pep8 = "tests/test_console.py"
+        result = style.check_files([user_pep8, test_console_pep8])
+        self.assertEqual(result.total_errors, 0)
 
 class TestHBNBCommand_prompting(unittest.TestCase):
     """Unittests for testing prompting of the HBNB command interpreter."""
@@ -1182,5 +1192,5 @@ class TestHBNBCommand_count(unittest.TestCase):
             self.assertEqual("1", output.getvalue().strip())
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()
