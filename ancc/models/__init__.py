@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Module that executes each time that models package is imported"""
+"""__init__ magic method for models directory"""
 from models.engine.file_storage import FileStorage
 
 
