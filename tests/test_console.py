@@ -34,6 +34,7 @@ class TestBaseModelpep8(unittest.TestCase):
         result = style.check_files([user_pep8, test_console_pep8])
         self.assertEqual(result.total_errors, 0)
 
+
 class TestHBNBCommand_prompting(unittest.TestCase):
     """Unittests for testing prompting of the HBNB command interpreter."""
 
