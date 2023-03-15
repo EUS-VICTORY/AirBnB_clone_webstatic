@@ -23,6 +23,18 @@ import json
 from models.engine.file_storage import FileStorage
 
 
+class TestBaseModelpep8(unittest.TestCase):
+    """Validate pep8"""
+
+    def test_pep8(self):
+        """test for base file and test_base file pep8"""
+        style = pep8.StyleGuide(quiet=True)
+        user_pep8 = "console.py"
+        test_console_pep8 = "tests/test_console.py"
+        result = style.check_files([user_pep8, test_console_pep8])
+        self.assertEqual(result.total_errors, 0)
+
+
 class TestHBNBCommand_prompting(unittest.TestCase):
     """Unittests for testing prompting of the HBNB command interpreter."""
 
